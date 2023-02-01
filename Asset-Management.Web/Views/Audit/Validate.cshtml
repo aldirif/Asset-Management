@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Asset_Management.ViewModel.AuditValidationReq
+
+@{
+    ViewBag.Title = "Audit - Validation";
+    Layout = "_Layout";
+}
+
+<h2>Audit Validation</h2>
+<form asp-controller="Audit" asp-action="UpdateAudit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="AssetHistoryId" />
+    <input type="hidden" asp-for="Condition" />
+    <input type="hidden" asp-for="TypeWindows" />
+    <input type="hidden" asp-for="WindowsLicenseUrl" />
+    <input type="hidden" asp-for="TypeOffice" />
+    <input type="hidden" asp-for="OfficeLicenseUrl" />
+    <input type="hidden" asp-for="Antivirus" />
+    <input type="hidden" asp-for="AssetPhotoUrl" />
+    <div class="form-group">
+        <label asp-for="Result">Result</label>
+        <input asp-for="Result" class="form-control" />
+        <span asp-validation-for="Result" class="text-danger"></span>
+    </div>
+
+    <div class="pt-2 pb-2">
+        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+        <a asp-action="Index" class="btn btn-sm btn-success">Back</a>
+    </div>
+    
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

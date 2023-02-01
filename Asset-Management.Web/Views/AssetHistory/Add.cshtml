@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Asset_Management.ViewModel.AssetHistoryReq
+
+@{
+    ViewBag.Title = "Asset History - Create New Data";
+    Layout = "_Layout";
+}
+
+<h2>Create New Asset History</h2>
+
+<form asp-controller="AssetHistory" asp-action="Save" method="post">
+    <div class="form-group">
+        <label asp-for="AssetId">Asset Id</label>
+        <select type="text" asp-for="AssetId" class="form-control" asp-items="@ViewBag.Asset">
+            <option selected>Select Asset</option>
+        </select>
+        <span asp-validation-for="AssetId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Location">Location</label>
+        <input asp-for="Location" class="form-control"></input>
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PicId">PIC Name</label>
+        <select type="text" asp-for="PicId" class="form-control" asp-items="@ViewBag.Pic">
+            <option selected>Select Asset</option>
+        </select>
+        <span asp-validation-for="PicId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SendDate">Send Date</label>
+        <input asp-for="SendDate" class="form-control"></input>
+        <span asp-validation-for="SendDate" class="text-danger"></span>
+    </div>
+    <div class="pt-2 pb-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

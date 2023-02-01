@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Asset_Management.ViewModel.AssetModel
+
+@{
+    ViewData["Title"] = "Asset - Create New Data";
+}
+
+<form asp-controller="Asset" asp-action="Save" method="post">
+    <div class="form-group">
+        <label asp-for="AssetName">Asset Name</label>
+        <input asp-for="AssetName" class="form-control" />
+        <span asp-validation-for="AssetName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SerialNumber">Serial Number</label>
+        <input asp-for="SerialNumber" class="form-control" />
+        <span asp-validation-for="SerialNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PurchaseYear">Purchase Year</label>
+        <input asp-for="PurchaseYear" class="form-control" />
+        <span asp-validation-for="PurchaseYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Specification">Specification</label>
+        <textarea asp-for="Specification" class="form-control"></textarea>
+        <span asp-validation-for="Specification" class="text-danger"></span>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

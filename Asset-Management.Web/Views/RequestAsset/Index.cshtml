@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Asset_Management.ViewModel.RequestAssetModel>
+@{
+    ViewBag.Title = "Request Asset";
+    // Approval team
+    Layout = "_Layout";
+}
+<h2>Request Asset</h2>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>PIC Name</th>
+            <th>PIC Address</th>
+            <th>Specification</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.PicName</td>
+                <td>@item.PicAddress</td>
+                <td>@item.Specification</td>
+                <td>@item.RequestDate</td>
+                <td>
+                    <a asp-action="Approve" asp-route-id="@item.Id" class="btn btn-sm btn-success" id="approved">Approve</a>
+                    <a asp-action="Reject" asp-route-id="@item.Id" class="btn btn-sm btn-danger" id="rejected">Reject</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<div class="modal" tabindex="-1" id="approved-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Request has been Approved</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>*@
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#approved").click(function () {
+                alert("Request has been approved")
+                //$("#approved-modal").modal("show");
+            });
+        });
+    </script>
+}

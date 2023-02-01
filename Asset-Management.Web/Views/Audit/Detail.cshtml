@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Asset_Management.ViewModel.AuditResponse
+
+@{
+    ViewBag.Title = "Audit - Detail";
+    Layout = "_Layout";
+}
+
+<h2>Audit Detail</h2>
+<table class="table tab-content">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>Asset Name</th>
+            <td>@Model.AssetName</td>
+        </tr>
+        <tr>
+            <th>Specification</th>
+            <td>@Model.AssetSpecification</td>
+        </tr>
+        <tr>
+            <th>Serial Number</th>
+            <td>@Model.AssetSerialNumber</td>
+        </tr>
+        <tr>
+            <th>Purchase Year</th>
+            <td>@Model.AssetPurchaseYear</td>
+        </tr>
+        <tr>
+            <th>PIC Name</th>
+            <td>@Model.PicName</td>
+        </tr>
+        <tr>
+            <th>Condition</th>
+            <td>@Model.Condition</td>
+        </tr>
+        <tr>
+            <th>Type Windows</th>
+            <td>@Model.TypeWindows</td>
+        </tr>
+        <tr>
+            <th>Screenshot Windows License</th>
+            <td>
+                <img src="~/upload_audit/@Model.WindowsLicenseUrl" style="width:300px"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Type Office</th>
+            <td>@Model.TypeOffice</td>
+        </tr>
+        <tr>
+            <th>Screenshot Office License</th>
+            <td>
+                <img src="~/upload_audit/@Model.OfficeLicenseUrl" style="width:300px" />
+            </td>
+        </tr>
+        <tr>
+            <th>Antivirus</th>
+            <td>@Model.Antivirus</td>
+        </tr>
+        <tr>
+            <th>Recent Photo</th>
+            <td>
+                <img src="~/upload_audit/@Model.AssetPhotoUrl" style="width:300px" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<a asp-action="Index" class="btn btn-sm btn-success">Back</a>
+<a asp-action="Validate" asp-route-id="@Model.Id" class="btn btn-sm btn-primary">Validate</a>

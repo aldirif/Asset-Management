@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Asset_Management.ViewModel.RequestListResponse>
+@{
+    ViewBag.Title = "Request Asset";
+    // Admin
+    Layout = "_Layout";
+}
+<h2>Request Asset</h2>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>PIC Name</th>
+            <th>PIC Address</th>
+            <th>Specification</th>
+            <th>Request Date</th>
+            <th>Status</th
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.PicName</td>
+                <td>@item.PicAddress</td>
+                <td>@item.Specification</td>
+                <td>@item.RequestDate</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Asset_Management.ViewModel.AuditResponse>
+@{
+    ViewBag.Title = "Validated Audit";
+    // Admin Audit
+    Layout = "_Layout";
+}
+<h2>Validated Audit</h2>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Asset Name</th>
+            <th>Specification</th>
+            <th>Serial Number</th>
+            <th>PurchaseYear</th>
+            <th>PIC Name</th>
+            <th>Condition</th>
+            <th>Type Windows</th>
+            <th>Type Office</th>
+            <th>Antivirus</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.AssetName</td>
+                <td>@item.AssetSpecification</td>
+                <td>@item.AssetSerialNumber</td>
+                <td>@item.AssetPurchaseYear</td>
+                <td>@item.PicName</td>
+                <td>@item.Condition</td>
+                <td>@item.TypeWindows</td>
+                <td>@item.TypeOffice</td>
+                <td>@item.Antivirus</td>
+                <td>@item.Result</td>
+            </tr>
+        }
+    </tbody>
+</table>

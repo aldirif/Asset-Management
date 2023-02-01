@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Asset_Management.ViewModel.RequestAssetDetailResponse
+@{
+    ViewBag.Title = "Request Asset - Detail";
+    Layout = "_Layout";
+}
+
+<h2>Request Asset Detail</h2>
+<table class="table tab-content">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>PIC Name</th>
+            <td>@Model.PicName</td>
+        </tr>
+        <tr>
+            <th>PIC Address</th>
+            <td>@Model.PicAddress</td>
+        </tr>
+        <tr>
+            <th>Specification</th>
+            <td>@Model.Specification</td>
+        </tr>
+        <tr>
+            <th>RequestDate</th>
+            <td>@Model.RequestDate</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Reason</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.approval)
+        {
+            <tr>
+                <td>@item.Status</td>
+                <td>@item.UpdatedDate</td>
+                <td>@item.Reason</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-sm btn-success">Back</a>
